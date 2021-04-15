@@ -1,0 +1,11 @@
+Quiz 2
+
+1. /home/csuser/Desktop
+
+2. cd class_stuff
+
+3. mkdir work
+
+4. ls foo
+
+5. cp class_stuff/foo work
