@@ -72,22 +72,16 @@ void Calc::MakeValueTbl()
 
 void Calc::Parse()
 {
-	int lastIdx = 0;
-	int cur;
-	int parsed;
+	int lastIdx = 0, tmpLength = 0, pos = 0, z = 0, i = 0, parsedIdx = 0;
+	int cur, parsed, curIdx;
 	valueIdx = 0;
-	int tmpLength = 0;
-	int pos = 0;
-	int z = 0;
-	int curIdx;
-	int i = 0;
+	
 	char* parsedEquation = new char[strlen(inFix)];
-	int parsedIdx = 0;
+	
 	
 	
 	while (i < strlen(inFix))
 	{
-	
 		if (inFix[i] >= '0' && inFix[i] <= '9')
 		{
 			curIdx = i;
