@@ -103,14 +103,12 @@ void Calc::Parse()
 			}
 			parsed = atoi(tmp);
 			valueTbl[valueIdx] = parsed;
-			cout << "THIS IS THE VALUE " << valueTbl[valueIdx] << endl;
 			i += tmpLength - 1;
 			parsedEquation[parsedIdx] = valueIdx + 65;
 			valueIdx++;
 		}
 		else
 		{
-			cout << inFix[i] << endl;
 			parsedEquation[parsedIdx] = inFix[i];
 		}
 		parsedIdx++;
