@@ -145,6 +145,10 @@ class Calc
 	*/
 	void InFixToPostFix();
 	
+	/*
+	pre: postFix expression has not been calculated
+	post: postFix expression has been calculated
+	*/
 	int Calculate(int, int, char);
 
 	char*  inFix;     //null-terminated string that holds infix expression 
