@@ -144,6 +144,8 @@ class Calc
 	of the the input infix expression.
 	*/
 	void InFixToPostFix();
+	
+	int Calculate(int, int, char);
 
 	char*  inFix;     //null-terminated string that holds infix expression 
 	char* postFix;	  //null-terminated string that holds infix expression 

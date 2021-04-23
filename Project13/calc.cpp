@@ -202,27 +202,76 @@ void Calc::DisplayPostFix()
 
 int Calc::Evaluate()
 {
-	/*
 	char ch = postFix[0];
 	char op2;
 	char op1;
-	char result;
-	
-	for (int i = 0; i < strlen(postFix) + 1; i++)
+	int result;
+	int i = 0;
+	char Operator;
+	valueIdx = 0;
+	int newResult;
+
+	while (postFix[i] != '\0')
 	{
 		ch = postFix[i];
-		
-		if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
+		/*
+		if (isdigit(stk->Peek()))
+			op2 = stk->Peek();
+		*/
+		if (ch >= 65 && ch <= 90)
 			stk->Push(ch);
-		else if (isdigit(postFix[i]))
+		
+		else
 		{
-			op2 = stk->Pop();
-			op1 = stk->Pop();
-			//result = op1 ch op2
+		//op2 does not become result because else statement doesnt execute
+			Operator = ch;
+			op2 = stk->Peek();
+			//cout << "OP2: " << op2 << endl;
+			stk->Pop();
+			op1 = stk->Peek();
+			//cout << "OP1: " << op1 << endl;
+			stk->Pop();
+			//cout << "ON STCK AFTER OPS " << stk->Peek() << endl;
+			
+			result = Calculate(op1, op2, Operator);
 			stk->Push(result);
+			//cout << "RESULT ON STACK " << stk->Peek() << endl;
+			//stk->Pop();
+			//cout << stk->Peek() << endl;
+			//newResult = stk->Peek();
+			cout << "Result = " << result << endl;
+			
+			
+			//cout << "OP1 = " << op1 << " OP2 = " << op2 << " OPERATOR = " << Operator << endl;
+			//cout << op1 << Operator << op2 << endl;
+			
+			
 		}
+		i++;
 	}
-	return stk->Pop();
-	*/
+	//return stk->Pop();
+
 	return 0;
+}
+
+int Calc::Calculate(int op1, int op2, char Operator)
+{
+	int num1;
+	int num2;
+	int result; 
+	num1 = valueTbl[op1 - 65];
+	num2 = valueTbl[op2 - 65];
+	
+	if (Operator == '+')
+		result = num1 + num2;
+	else if (Operator == '-')
+		result = num1 - num2;
+	else if (Operator == '*') 
+		result = num1 * num2;
+	else if (Operator == '/')
+		result = num1 / num2;
+	
+	cout << num1 << " " << num2 << endl;
+	
+	return result;
 }
